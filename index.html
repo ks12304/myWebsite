@@ -1,5 +1,51 @@
 -<html>
 <head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Back to Top Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 2000px; /* Just to make the page scrollable for demonstration */
+        }
+
+        /* Styling for the top bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 18px;
+            z-index: 1000;
+        }
+
+        /* Styling for the Back to Top button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+        }
+
+        #backToTop:hover {
+            background-color: #555;
+        }
+    </style>
+
   <style>
      body{
          text-align: center;
@@ -75,9 +121,34 @@ BEST THINGS TO DO
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HfBzECyIeVw?si=y6yrYrsGA1QqvXe2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+   <!-- Top Bar -->
+    <div class="top-bar">
+        Welcome to My Website!
+    </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
+
+    <script>
+        // Show the button when the user scrolls down
+        window.onscroll = function() {
+            let button = document.getElementById("backToTop");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+
+        // Function to scroll to the top of the page smoothly
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
 </body>
 
 </html>
-
